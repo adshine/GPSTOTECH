@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 import { CheckSquare } from 'lucide-react';
+import CompCardBg from '@/assets/imgs/Features/Comp-card-Bg.png';
+import CompCardFg from '@/assets/imgs/Features/Comp-card-Fg.png';
+import AnalyticsCardBg from '@/assets/imgs/Features/Analytics-Card-Bg.png';
+import AnalyticsCardFg from '@/assets/imgs/Features/Analytics-Card-Fg.png';
+import SeamlessCardBg from '@/assets/imgs/Features/Seemless-Card-Bg.png';
+import SeamlessCardFg from '@/assets/imgs/Features/Seemless-Card-Fg.png';
+import FeaturesBg from '@/assets/imgs/Features/Features-Bg.png';
 
 type FeatureBlockProps = {
   title: string;
@@ -64,8 +71,8 @@ const FeaturesSection = () => {
         "Training Route Assessment - Determine optimal education pathway",
         "Barriers Assessment - Identify and plan around obstacles"
       ],
-      bgImage: "/src/assets/imgs/Features/Comp-card-Bg.png",
-      fgImage: "/src/assets/imgs/Features/Comp-card-Fg.png"
+      bgImage: CompCardBg,
+      fgImage: CompCardFg
     },
     {
       title: "Insightful Analytics Dashboard",
@@ -76,8 +83,8 @@ const FeaturesSection = () => {
         "Agency-wide performance views",
         "Trend analysis and reporting"
       ],
-      bgImage: "/src/assets/imgs/Features/Analytics-Card-Bg.png",
-      fgImage: "/src/assets/imgs/Features/Analytics-Card-Fg.png",
+      bgImage: AnalyticsCardBg,
+      fgImage: AnalyticsCardFg,
       imagePosition: 'left' as const
     },
     {
@@ -89,8 +96,8 @@ const FeaturesSection = () => {
         "Email analytics tracking",
         "Resource management system"
       ],
-      bgImage: "/src/assets/imgs/Features/Seemless-Card-Bg.png",
-      fgImage: "/src/assets/imgs/Features/Seemless-Card-Fg.png",
+      bgImage: SeamlessCardBg,
+      fgImage: SeamlessCardFg,
       imagePosition: 'right' as const
     }
   ];
@@ -115,7 +122,7 @@ const FeaturesSection = () => {
           </div>
           <div className="mt-12">
             <motion.img 
-              src="/src/assets/imgs/Features/Features-Bg.png" 
+              src={FeaturesBg}
               alt="GPSTOTECH Platform Interface" 
               className="w-full rounded-lg"
               initial={{ opacity: 0, y: 20 }}

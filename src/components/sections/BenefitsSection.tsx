@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import BenefitBG from '../../assets/imgs/Benefit-BG.png';
+import BenefitBG from '@/assets/imgs/Benefit-BG.png';
 import { 
 
   Target01Icon, 

@@ -19,7 +19,7 @@ const defaultPreferences: CookiePreferences = {
 };
 
 export function CookieConsent() {
-  const [showBanner, setShowBanner] = useState(true);
+  const [showBanner, setShowBanner] = useState<boolean | null>(null);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
 
@@ -29,6 +29,8 @@ export function CookieConsent() {
     if (Object.keys(savedPreferences).length > 0) {
       setPreferences(savedPreferences as CookiePreferences);
       setShowBanner(false);
+    } else {
+      setShowBanner(true);
     }
   }, []);
 
@@ -50,6 +52,9 @@ export function CookieConsent() {
     setShowBanner(false);
     setShowSettings(false);
   };
+
+  // Don't render anything until we've checked the saved preferences
+  if (showBanner === null) return null;
 
   return (
     <>

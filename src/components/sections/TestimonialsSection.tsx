@@ -64,9 +64,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: TestimonialProps }) => 
       <div 
         className="min-w-[48px] w-[48px] h-[48px] rounded-full flex items-center justify-center relative overflow-hidden"
         style={{ 
-          backgroundImage: 'url("/src/assets/imgs/Features/Comp-card-Bg.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
         }}
       >
         <span className="text-white font-semibold text-[20px] drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">

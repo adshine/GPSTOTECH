@@ -1,20 +1,23 @@
 import { motion } from "framer-motion"
+import Step01Fg from '@/assets/imgs/HowItWorks/Step-01-Fg.png';
+import Step02Fg from '@/assets/imgs/HowItWorks/Step-02-Fg.png';
+import Step03Fg from '@/assets/imgs/HowItWorks/Step-03-Fg.png';
 
 const steps = [
   {
-    image: "/src/assets/imgs/HowItWorks/Step-01-Fg.png",
+    image: Step01Fg,
     title: "Create your account",
     description:
       "First, you sign up for free, and you get a 7days free trial. Then you will automatically be connected with our sales team to activate your account.",
   },
   {
-    image: "/src/assets/imgs/HowItWorks/Step-02-Fg.png",
+    image: Step02Fg,
     title: "Setup your client's Profile",
     description:
       "Complete a few quick setup steps to configure your client's profile and prepare the system for comprehensive results analysis.",
   },
   {
-    image: "/src/assets/imgs/HowItWorks/Step-03-Fg.png",
+    image: Step03Fg,
     title: "Get Assessment Result",
     description:
       "After completing your client's assessment, you will receive a comprehensive report along with tailored recommendations for your client.",
