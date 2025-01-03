@@ -77,7 +77,7 @@ const ChallengesSection = () => {
   return (
     <section 
       id="challenges" 
-      className="w-full bg-grey-100 py-8 pt-24 overflow-hidden flex flex-col items-center"
+      className="w-full bg-grey-100 py-8 md:pt-24 overflow-hidden flex flex-col items-center"
       aria-label="Common challenges in tech career guidance"
     >
       <div className="max-w-7xl mx-auto mb-0">
@@ -105,8 +105,8 @@ const ChallengesSection = () => {
         </InfiniteSlider>
 
         {/* Gradient Overlays */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent pointer-events-none hidden md:block" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none hidden md:block" />
       </div>
     </section>
   );

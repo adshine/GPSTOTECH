@@ -1,6 +1,6 @@
 import LogoSvg from '@/assets/imgs/GPSTOTECH-Logo.svg';
 import { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from 'framer-motion';
 
 type Section = {
@@ -13,6 +13,42 @@ export function Header() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const sectionIds = ['benefits', 'features', 'how-it-works', 'testimonials'];
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToSection = (sectionId: string) => {
+    const isHomePage = location.pathname === '/';
+    
+    if (!isHomePage) {
+      // If not on home page, navigate to home first
+      navigate('/');
+      // Wait for navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      // If already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
 
   // Hero section observer
   useEffect(() => {
@@ -136,34 +172,50 @@ export function Header() {
 
             {/* Navigation Links - Desktop */}
             <div className="hidden md:flex items-center gap-8">
-              <Link 
-                to="/#benefits" 
+              <a 
+                href="#benefits" 
                 className="text-sm hover:text-[#4670EC] transition-all duration-300"
                 style={getNavLinkStyles('benefits')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('benefits');
+                }}
               >
                 Benefits
-              </Link>
-              <Link 
-                to="/#features" 
+              </a>
+              <a 
+                href="#features" 
                 className="text-sm hover:text-[#4670EC] transition-all duration-300"
                 style={getNavLinkStyles('features')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('features');
+                }}
               >
                 Features
-              </Link>
-              <Link 
-                to="/#how-it-works" 
+              </a>
+              <a 
+                href="#how-it-works" 
                 className="text-sm hover:text-[#4670EC] transition-all duration-300"
                 style={getNavLinkStyles('how-it-works')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('how-it-works');
+                }}
               >
                 How it works
-              </Link>
-              <Link 
-                to="/#testimonials" 
+              </a>
+              <a 
+                href="#testimonials" 
                 className="text-sm hover:text-[#4670EC] transition-all duration-300"
                 style={getNavLinkStyles('testimonials')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('testimonials');
+                }}
               >
                 Testimonials
-              </Link>
+              </a>
             </div>
 
             {/* CTA Buttons - Desktop */}
@@ -231,38 +283,54 @@ export function Header() {
               className="md:hidden px-4 pb-4"
             >
               <div className="flex flex-col gap-4">
-                <Link 
-                  to="/#benefits" 
+                <a 
+                  href="#benefits" 
                   className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
                   style={getNavLinkStyles('benefits')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection('benefits'), 300);
+                  }}
                 >
                   Benefits
-                </Link>
-                <Link 
-                  to="/#features" 
+                </a>
+                <a 
+                  href="#features" 
                   className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
                   style={getNavLinkStyles('features')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection('features'), 300);
+                  }}
                 >
                   Features
-                </Link>
-                <Link 
-                  to="/#how-it-works" 
+                </a>
+                <a 
+                  href="#how-it-works" 
                   className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
                   style={getNavLinkStyles('how-it-works')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection('how-it-works'), 300);
+                  }}
                 >
                   How it works
-                </Link>
-                <Link 
-                  to="/#testimonials" 
+                </a>
+                <a 
+                  href="#testimonials" 
                   className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
                   style={getNavLinkStyles('testimonials')}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    setTimeout(() => scrollToSection('testimonials'), 300);
+                  }}
                 >
                   Testimonials
-                </Link>
+                </a>
                 <div className="flex flex-col gap-3 pt-2">
                   <Link 
                     to="/auth/login"

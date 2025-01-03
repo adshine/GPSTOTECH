@@ -31,7 +31,7 @@ const HeroSection = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full min-h-screen flex flex-col gap-8 md:gap-16"
+      className="relative w-full min-h-[85vh] md:min-h-screen flex flex-col gap-4 md:gap-16"
       aria-label="Hero section"
     >
       {/* Background Image */}
@@ -46,9 +46,9 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-16 pt-16 md:pt-32 pb-8 md:pb-16 mt-[60px] md:mt-[80px]">
+      <div className="flex-1 flex flex-col justify-end md:justify-center px-4 md:px-16 pt-12 md:pt-32 pb-8 md:pb-16 mt-[120px] md:mt-[80px]">
         <motion.div 
-          className="max-w-[1312px] mx-auto flex flex-col gap-6 md:gap-8"
+          className="max-w-[1312px] mx-auto flex flex-col gap-3 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -58,10 +58,12 @@ const HeroSection = () => {
             variants={itemVariants}
           >
             <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[3.5rem] font-poppins leading-[1.2] tracking-[-0.02em] max-w-[800px] mx-auto text-[#002252]">
-              <span className="inline-block">Fastrack Your Client into</span>{' '}
-              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2">
-                <span className="inline-block">the Right</span>{' '}
-                <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
+              <div className="flex flex-col items-center">
+                <span className="inline-block">Fastrack Your Client into</span>
+                <div className="flex flex-row items-center justify-center gap-2">
+                  <span className="inline-block">the Right</span>{' '}
+                  <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
+                </div>
               </div>
             </h1>
           </motion.div>
@@ -75,7 +77,7 @@ const HeroSection = () => {
             </p>
             <motion.div>
               <motion.button
-                className="px-8 py-3 rounded-full text-white font-medium text-base sm:text-lg transition-all duration-200"
+                className="px-8 py-3 rounded-full text-white font-medium text-base sm:text-lg transition-all duration-200 mb-8 md:mb-0"
                 style={{ 
                   background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
                   boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1)'
@@ -93,7 +95,7 @@ const HeroSection = () => {
         </motion.div>
         
         <motion.div
-          className="w-full max-w-[1312px] mx-auto relative mt-8 md:mt-16"
+          className="w-full max-w-[1312px] mx-auto relative mt-4 md:mt-16"
           variants={itemVariants}
           initial="hidden"
           animate="visible"
@@ -115,7 +117,7 @@ const HeroSection = () => {
               alt="Career guidance dashboard interface showing assessment tools and analytics"
               className="w-full h-full object-cover rounded-[10px]"
               loading="eager"
-              style={{ aspectRatio: '15/9' }}
+              style={{ aspectRatio: '17/9' }}
             />
           </div>
         </motion.div>

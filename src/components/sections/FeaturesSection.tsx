@@ -123,9 +123,11 @@ const FeaturesSection = () => {
         <div className="py-12 md:py-20 relative">
           <div className="max-w-3xl">
             <span className="text-primary font-medium mb-4 block">Features Like No Other</span>
-            <h2 className="text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 leading-[1.2]">
-              <span className="inline-block">Everything You need to get</span>{' '}
-              <span className="inline-block">Your Client into Tech</span>
+            <h2 className="text-[1.5rem] sm:text-[1.5rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 leading-[1.2]">
+              <div className="flex flex-col gap-1">
+                <span className="inline-block whitespace-nowrap">Everything You need to get Your</span>
+                <span className="inline-block whitespace-nowrap">Client into Tech</span>
+              </div>
             </h2>
             <p className="text-base md:text-lg text-gray-600">
               A complete suite of assessment tools and resources to streamline your career guidance process

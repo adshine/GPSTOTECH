@@ -31,7 +31,12 @@ export function CookieConsent() {
     
     if (hasPreferences) {
       setPreferences(savedPreferences as CookiePreferences);
-      setShowBanner(false);
+      // Check if any optional cookie is disabled
+      const anyOptionalDisabled = !savedPreferences.analytics || 
+                                !savedPreferences.marketing || 
+                                !savedPreferences.functional;
+      // Show banner if any optional cookie is disabled
+      setShowBanner(anyOptionalDisabled);
     }
     
     setInitialized(true);

@@ -1,8 +1,21 @@
 import { Link } from "react-router-dom"
 import CTABg from "@/assets/imgs/cta-bg.png"
 import BrandLogo from "@/assets/imgs/GPSTOTECH-Logo.svg"
+import { useState } from "react"
+import CookieSettings from "@/components/cookie-consent/CookieSettings"
+import { getCookiePreferences, setCookiePreferences } from "@/utils/cookie"
+import { AnimatePresence } from "framer-motion"
+import type { CookiePreferences } from "@/components/cookie-consent/CookieConsent"
 
 export function Footer() {
+  const [showCookieSettings, setShowCookieSettings] = useState(false);
+  const savedPreferences = getCookiePreferences();
+
+  const handleSavePreferences = (newPreferences: CookiePreferences) => {
+    setCookiePreferences(newPreferences);
+    setShowCookieSettings(false);
+  };
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
@@ -90,7 +103,10 @@ export function Footer() {
               <Link to="/terms-of-service" className="text-xs md:text-sm text-white hover:text-white/80">
                 Terms of Service
               </Link>
-              <button className="text-xs md:text-sm text-white hover:text-white/80">
+              <button 
+                onClick={() => setShowCookieSettings(true)}
+                className="text-xs md:text-sm text-white hover:text-white/80"
+              >
                 Cookies Settings
               </button>
             </div>
@@ -101,6 +117,15 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <AnimatePresence>
+        {showCookieSettings && (
+          <CookieSettings
+            preferences={savedPreferences as CookiePreferences}
+            onSave={handleSavePreferences}
+            onClose={() => setShowCookieSettings(false)}
+          />
+        )}
+      </AnimatePresence>
     </footer>
   )
 } 

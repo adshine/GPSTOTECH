@@ -37,7 +37,7 @@ const BenefitCard = ({ icon: Icon, title, description, index }: BenefitCardProps
     <p className="text-gray-600">{description}</p>
     
     {/* Decorative Elements */}
-    <div className="absolute top-0 left-0 w-full h-1 bg-blue-" />
+    <div className="absolute top-0 left-0 w-full h-1 bg-blue-100" />
   </motion.div>
 );
 
@@ -88,9 +88,11 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
         >
           <span className="text-primary font-medium mb-4 block">Benefits</span>
-          <h2 className="text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 tracking-[-1.76px] leading-[1.2]">
-            <span className="inline-block">GPS to Tech - Your Career</span>{' '}
-            <span className="inline-block">Guidance Solution</span>
+          <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 tracking-[-1.76px] leading-[1.2]">
+            <div className="flex flex-col items-center gap-1">
+              <span className="inline-block whitespace-nowrap">GPS to Tech -</span>
+              <span className="inline-block whitespace-nowrap">Your Career Guidance Solution</span>
+            </div>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             All-in-one Counselling Assessment Application designed to demystify tech careers
