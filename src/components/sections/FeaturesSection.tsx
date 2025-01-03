@@ -134,13 +134,15 @@ const FeaturesSection = () => {
             </p>
           </div>
           <div className="mt-8 md:mt-12">
-            <motion.img 
+            <img 
               src={FeaturesBg}
               alt="GPSTOTECH Platform Interface" 
-              className="w-full rounded-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              className="w-full h-[100px] md:h-[600px] rounded-[10px] object-cover sm:object-contain"
+              loading="lazy"
+              style={{ 
+                imageRendering: '-webkit-optimize-contrast'
+              }}
+              draggable="false"
             />
           </div>
         </div>

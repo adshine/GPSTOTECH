@@ -72,12 +72,13 @@ const BenefitsSection = () => {
       aria-label="Benefits of using GPSTOTECH"
     >
       <div 
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full -z-10 opacity-30"
         style={{
           backgroundImage: `url(${BenefitBG})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.5
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'crisp-edges'
         }}
       />
       <div className="max-w-7xl mx-auto relative z-10">

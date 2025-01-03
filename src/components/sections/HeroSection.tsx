@@ -41,7 +41,8 @@ const HeroSection = () => {
           backgroundImage: `url(${HeroBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          imageRendering: 'crisp-edges'
         }}
       />
 
@@ -117,7 +118,11 @@ const HeroSection = () => {
               alt="Career guidance dashboard interface showing assessment tools and analytics"
               className="w-full h-full object-cover rounded-[10px]"
               loading="eager"
-              style={{ aspectRatio: '17/9' }}
+              style={{ 
+                aspectRatio: '17/9',
+                imageRendering: '-webkit-optimize-contrast'
+              }}
+              draggable="false"
             />
           </div>
         </motion.div>
