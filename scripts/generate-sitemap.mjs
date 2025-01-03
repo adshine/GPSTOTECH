@@ -1,7 +1,11 @@
 import { writeFileSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-const WEBSITE_URL = 'https://gpstotech.com';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const WEBSITE_URL = 'https://gpstotech.netlify.app';
 
 // Add all your website routes here
 const routes = [
