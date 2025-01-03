@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import CookieSettings from './CookieSettings';
+import { setCookiePreferences, getCookiePreferences } from '@/utils/cookie';
 
 export type CookiePreferences = {
   necessary: boolean;
@@ -24,11 +25,9 @@ export function CookieConsent() {
 
   useEffect(() => {
     // Check if user has already made a choice
-    const savedPreferences = localStorage.getItem('cookiePreferences');
-    
-    if (savedPreferences) {
-      const parsedPreferences = JSON.parse(savedPreferences);
-      setPreferences(parsedPreferences);
+    const savedPreferences = getCookiePreferences();
+    if (Object.keys(savedPreferences).length > 0) {
+      setPreferences(savedPreferences as CookiePreferences);
       setShowBanner(false);
     }
   }, []);
@@ -41,13 +40,13 @@ export function CookieConsent() {
       functional: true,
     };
     setPreferences(allAccepted);
-    localStorage.setItem('cookiePreferences', JSON.stringify(allAccepted));
+    setCookiePreferences(allAccepted);
     setShowBanner(false);
   };
 
   const handleSavePreferences = (newPreferences: CookiePreferences) => {
     setPreferences(newPreferences);
-    localStorage.setItem('cookiePreferences', JSON.stringify(newPreferences));
+    setCookiePreferences(newPreferences);
     setShowBanner(false);
     setShowSettings(false);
   };

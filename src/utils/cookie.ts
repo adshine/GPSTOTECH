@@ -57,5 +57,34 @@ export function setSecureCookie(
     ...options,
     secure: true,
     sameSite: 'Strict',
+    path: '/',
+    expires: 365 // 1 year
   });
+}
+
+export function setCookiePreferences(preferences: Record<string, boolean>): void {
+  // Store preferences in localStorage
+  localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+
+  // Set individual cookies based on preferences
+  Object.entries(preferences).forEach(([key, enabled]) => {
+    if (enabled) {
+      setSecureCookie(`gpstotech_${key}`, 'true');
+    } else {
+      deleteCookie(`gpstotech_${key}`, { path: '/' });
+    }
+  });
+}
+
+export function getCookiePreferences(): Record<string, boolean> {
+  const savedPreferences = localStorage.getItem('cookiePreferences');
+  if (savedPreferences) {
+    return JSON.parse(savedPreferences);
+  }
+  return {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+    functional: false
+  };
 } 
