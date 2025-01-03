@@ -83,7 +83,7 @@ export function Footer() {
           <div className="h-px bg-[#E0E0E0]/20" />
           
           <div className="mt-6 md:mt-8 flex flex-col lg:flex-row justify-between gap-4 md:gap-6">
-            <div className="flex gap-4 md:gap-6 flex-wrap font-poppins">
+            <div className="flex justify-between md:justify-start gap-4 md:gap-6 flex-wrap font-poppins">
               <Link to="/privacy-policy" className="text-xs md:text-sm text-white hover:text-white/80">
                 Privacy Policy
               </Link>

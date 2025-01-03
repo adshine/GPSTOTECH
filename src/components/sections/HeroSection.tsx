@@ -46,9 +46,9 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-16 pt-24 md:pt-32 pb-8 md:pb-16 mt-[100px] md:mt-[150px]">
+      <div className="flex-1 flex flex-col justify-center px-4 md:px-16 pt-16 md:pt-32 pb-8 md:pb-16 mt-[60px] md:mt-[80px]">
         <motion.div 
-          className="max-w-[1312px] mx-auto flex flex-col gap-4 md:gap-6"
+          className="max-w-[1312px] mx-auto flex flex-col gap-6 md:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -57,36 +57,28 @@ const HeroSection = () => {
             className="text-center"
             variants={itemVariants}
           >
-            <h1 className="text-[2.5rem] md:text-[3.33rem] font-poppins leading-[1.2] md:leading-tight tracking-[-0.4px] max-w-[800px] mx-auto text-[#002252] px-4">
-              <span className="inline-block">Fastrack Your Client</span>{' '}
-              <span className="inline-block">into the Right</span>{' '}
-              <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
+            <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[3.5rem] font-poppins leading-[1.2] tracking-[-0.02em] max-w-[800px] mx-auto text-[#002252]">
+              <span className="inline-block">Fastrack Your Client into</span>{' '}
+              <div className="inline-flex flex-col sm:flex-row items-center justify-center gap-2">
+                <span className="inline-block">the Right</span>{' '}
+                <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
+              </div>
             </h1>
           </motion.div>
           
           <motion.div 
-            className="max-w-[1021px] mx-auto flex flex-col items-center gap-4 md:gap-6"
+            className="max-w-[600px] mx-auto flex flex-col items-center gap-6 md:gap-8"
             variants={itemVariants}
           >
-            <p className="text-base md:text-lg text-[#5B626D] text-center max-w-[443px] px-4">
-              A Smart, Enterprise-Ready desktop application that helps Career Advisors and Counsellors guide Clients into the right tech roles
+            <p className="text-base sm:text-lg text-[#5B626D] text-center leading-relaxed">
+              A Smart, Enterprise-Ready desktop application that helps Career Advisors, and Counsellors guide Clients ito the right tech roles
             </p>
-            <motion.div className="relative rounded-full px-1 py-1">
-              <BorderTrail
-                style={{
-                  background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
-                  boxShadow: '0px 0px 30px 15px rgba(75, 172, 241, 0.1), 0 0 50px 30px rgba(18, 73, 233, 0.1)',
-                  animationDuration: '4s',
-                  borderRadius: '100px'
-                }}
-                size={100}
-              />
+            <motion.div>
               <motion.button
-                className="relative group px-6 md:px-8 py-3 min-w-[180px] md:min-w-[200px] h-12 rounded-[100px] overflow-hidden text-white transition-all duration-200 flex items-center justify-center gap-2"
+                className="px-8 py-3 rounded-full text-white font-medium text-base sm:text-lg transition-all duration-200"
                 style={{ 
                   background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
-                  boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.05)',
-                  border: '1px solid rgba(18, 73, 233, 0.1)'
+                  boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1)'
                 }}
                 whileHover={{ 
                   scale: 1.05,
@@ -94,7 +86,7 @@ const HeroSection = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="font-medium">Sign Up for Free</span>
+                Start your free trial
               </motion.button>
             </motion.div>
           </motion.div>
@@ -121,8 +113,9 @@ const HeroSection = () => {
             <img
               src={HeroDashboard}
               alt="Career guidance dashboard interface showing assessment tools and analytics"
-              className="w-full h-auto md:h-[200px] object-contain rounded-[10px]"
+              className="w-full h-full object-cover rounded-[10px]"
               loading="eager"
+              style={{ aspectRatio: '15/9' }}
             />
           </div>
         </motion.div>
