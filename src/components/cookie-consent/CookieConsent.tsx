@@ -19,19 +19,22 @@ const defaultPreferences: CookiePreferences = {
 };
 
 export function CookieConsent() {
-  const [showBanner, setShowBanner] = useState<boolean | null>(null);
+  const [showBanner, setShowBanner] = useState(true);
   const [showSettings, setShowSettings] = useState(false);
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
     // Check if user has already made a choice
     const savedPreferences = getCookiePreferences();
-    if (Object.keys(savedPreferences).length > 0) {
+    const hasPreferences = Object.keys(savedPreferences).length > 0;
+    
+    if (hasPreferences) {
       setPreferences(savedPreferences as CookiePreferences);
       setShowBanner(false);
-    } else {
-      setShowBanner(true);
     }
+    
+    setInitialized(true);
   }, []);
 
   const handleAcceptAll = () => {
@@ -54,7 +57,7 @@ export function CookieConsent() {
   };
 
   // Don't render anything until we've checked the saved preferences
-  if (showBanner === null) return null;
+  if (!initialized) return null;
 
   return (
     <>

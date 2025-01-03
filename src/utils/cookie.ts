@@ -6,6 +6,8 @@ interface CookieOptions {
   sameSite?: 'Strict' | 'Lax' | 'None';
 }
 
+const COOKIE_PREFERENCES_KEY = 'gpstotech_cookie_preferences';
+
 export function setCookie(
   name: string,
   value: string,
@@ -56,7 +58,7 @@ export function setSecureCookie(
   setCookie(name, value, {
     ...options,
     secure: true,
-    sameSite: 'Strict',
+    sameSite: 'Lax',
     path: '/',
     expires: 365 // 1 year
   });
@@ -64,7 +66,7 @@ export function setSecureCookie(
 
 export function setCookiePreferences(preferences: Record<string, boolean>): void {
   // Store preferences in localStorage
-  localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+  localStorage.setItem(COOKIE_PREFERENCES_KEY, JSON.stringify(preferences));
 
   // Set individual cookies based on preferences
   Object.entries(preferences).forEach(([key, enabled]) => {
@@ -77,14 +79,31 @@ export function setCookiePreferences(preferences: Record<string, boolean>): void
 }
 
 export function getCookiePreferences(): Record<string, boolean> {
-  const savedPreferences = localStorage.getItem('cookiePreferences');
-  if (savedPreferences) {
-    return JSON.parse(savedPreferences);
+  try {
+    // First try to get from localStorage
+    const savedPreferences = localStorage.getItem(COOKIE_PREFERENCES_KEY);
+    if (savedPreferences) {
+      return JSON.parse(savedPreferences);
+    }
+
+    // If not in localStorage, check cookies
+    const cookieTypes = ['necessary', 'analytics', 'marketing', 'functional'];
+    const preferences: Record<string, boolean> = {};
+    
+    cookieTypes.forEach(type => {
+      preferences[type] = getCookie(`gpstotech_${type}`) === 'true';
+    });
+
+    // If any preferences are found in cookies, save them to localStorage
+    if (Object.values(preferences).some(value => value)) {
+      localStorage.setItem(COOKIE_PREFERENCES_KEY, JSON.stringify(preferences));
+      return preferences;
+    }
+
+    // Return empty object if no preferences found
+    return {};
+  } catch (error) {
+    console.error('Error getting cookie preferences:', error);
+    return {};
   }
-  return {
-    necessary: true,
-    analytics: false,
-    marketing: false,
-    functional: false
-  };
 } 
