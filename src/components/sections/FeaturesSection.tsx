@@ -129,15 +129,15 @@ const FeaturesSection = () => {
                 <span className="inline-block whitespace-nowrap">Client into Tech</span>
               </div>
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
-              A complete suite of assessment tools and resources to streamline your career guidance process
+            <p className="text-base md:text-lg text-gray-600 max-w-[600px]">
+              A complete suite of assessment tools and resources  to streamline your career guidance process
             </p>
           </div>
           <div className="mt-8 md:mt-12">
             <img 
               src={FeaturesBg}
               alt="GPSTOTECH Platform Interface" 
-              className="w-full h-[100px] md:h-[600px] rounded-[10px] object-cover sm:object-contain"
+              className="w-full max-h-[450px] md:h-[600px] rounded-[10px] object-cover sm:object-contain"
               loading="lazy"
               style={{ 
                 imageRendering: '-webkit-optimize-contrast'
