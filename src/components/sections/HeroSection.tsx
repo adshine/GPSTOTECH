@@ -31,7 +31,7 @@ const HeroSection = () => {
   return (
     <section 
       id="hero"
-      className="relative w-full min-h-screen flex flex-col gap-16"
+      className="relative w-full min-h-screen flex flex-col gap-8 md:gap-16"
       aria-label="Hero section"
     >
       {/* Background Image */}
@@ -46,9 +46,9 @@ const HeroSection = () => {
       />
 
       {/* Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-16 pt-32 pb-16 mt-[150px]">
+      <div className="flex-1 flex flex-col justify-center px-4 md:px-16 pt-24 md:pt-32 pb-8 md:pb-16 mt-[100px] md:mt-[150px]">
         <motion.div 
-          className="max-w-[1312px] mx-auto flex flex-col gap-6"
+          className="max-w-[1312px] mx-auto flex flex-col gap-4 md:gap-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -57,16 +57,18 @@ const HeroSection = () => {
             className="text-center"
             variants={itemVariants}
           >
-            <h1 className="text-4xl md:text-[53.33px] font-poppins leading-tight tracking-[-0.4px] max-w-[800px] mx-auto text-[#002252]">
-              Fastrack Your Client into<br />the Right <span style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
+            <h1 className="text-[2.5rem] md:text-[3.33rem] font-poppins leading-[1.2] md:leading-tight tracking-[-0.4px] max-w-[800px] mx-auto text-[#002252] px-4">
+              <span className="inline-block">Fastrack Your Client</span>{' '}
+              <span className="inline-block">into the Right</span>{' '}
+              <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
             </h1>
           </motion.div>
           
           <motion.div 
-            className="max-w-[1021px] mx-auto flex flex-col items-center gap-6"
+            className="max-w-[1021px] mx-auto flex flex-col items-center gap-4 md:gap-6"
             variants={itemVariants}
           >
-            <p className="text-base md:text-lg text-[#5B626D] text-center max-w-[443px]">
+            <p className="text-base md:text-lg text-[#5B626D] text-center max-w-[443px] px-4">
               A Smart, Enterprise-Ready desktop application that helps Career Advisors and Counsellors guide Clients into the right tech roles
             </p>
             <motion.div className="relative rounded-full px-1 py-1">
@@ -80,7 +82,7 @@ const HeroSection = () => {
                 size={100}
               />
               <motion.button
-                className="relative group px-8 py-3 min-w-[200px] h-12 rounded-[100px] overflow-hidden text-white transition-all duration-200 flex items-center justify-center gap-2"
+                className="relative group px-6 md:px-8 py-3 min-w-[180px] md:min-w-[200px] h-12 rounded-[100px] overflow-hidden text-white transition-all duration-200 flex items-center justify-center gap-2"
                 style={{ 
                   background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
                   boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.05)',
@@ -99,14 +101,14 @@ const HeroSection = () => {
         </motion.div>
         
         <motion.div
-          className="w-full max-w-[1312px] mx-auto relative mt-16"
+          className="w-full max-w-[1312px] mx-auto relative mt-8 md:mt-16"
           variants={itemVariants}
           initial="hidden"
           animate="visible"
         >
           <div 
             className="w-full rounded-2xl overflow-hidden shadow-[0_32px_64px_-32px_rgba(0,66,153,0.12)] relative border border-zinc-200/50"
-            style={{ background: 'linear-gradient(white, #f0f0f0)', paddingTop: '5px', paddingLeft: '5px', paddingRight: '5px', paddingBottom: '-2px' }}
+            style={{ background: 'linear-gradient(white, #f0f0f0)', padding: '5px' }}
           >
             <BorderTrail
               style={{
@@ -119,8 +121,7 @@ const HeroSection = () => {
             <img
               src={HeroDashboard}
               alt="Career guidance dashboard interface showing assessment tools and analytics"
-              className="w-full h-[200px !important]"
-              style={{ objectFit: 'contain', borderRadius: '10px' }}
+              className="w-full h-auto md:h-[200px] object-contain rounded-[10px]"
               loading="eager"
             />
           </div>

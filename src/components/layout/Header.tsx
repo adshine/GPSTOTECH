@@ -1,6 +1,7 @@
 import LogoSvg from '@/assets/imgs/GPSTOTECH-Logo.svg';
 import { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from 'framer-motion';
 
 type Section = {
   id: string;
@@ -10,6 +11,7 @@ type Section = {
 export function Header() {
   const [isInView, setIsInView] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const sectionIds = ['benefits', 'features', 'how-it-works', 'testimonials'];
 
   // Hero section observer
@@ -119,7 +121,7 @@ export function Header() {
           transition: 'box-shadow 0.3s ease-in-out'
         }}
       >
-        <div className="px-6 py-4">
+        <div className="px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div>
@@ -127,13 +129,13 @@ export function Header() {
                 <img 
                   src={LogoSvg} 
                   alt="GPSTOTECH Logo"
-                  className="h-8"
+                  className="h-6 md:h-8"
                 />
               </Link>
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex items-center gap-8">
+            {/* Navigation Links - Desktop */}
+            <div className="hidden md:flex items-center gap-8">
               <Link 
                 to="/#benefits" 
                 className="text-sm hover:text-[#4670EC] transition-all duration-300"
@@ -164,8 +166,8 @@ export function Header() {
               </Link>
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex items-center gap-4">
+            {/* CTA Buttons - Desktop */}
+            <div className="hidden md:flex items-center gap-4">
               <Link 
                 to="/auth/login"
                 className={`px-6 py-2 text-sm font-medium rounded-[20px] transition-all duration-500`}
@@ -203,8 +205,94 @@ export function Header() {
                 Sign Up for Free
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2"
+              aria-label="Toggle mobile menu"
+            >
+              <div className="w-6 h-5 relative flex flex-col justify-between">
+                <span className={`w-full h-0.5 bg-[#002152] transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <span className={`w-full h-0.5 bg-[#002152] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+                <span className={`w-full h-0.5 bg-[#002152] transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              </div>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden px-4 pb-4"
+            >
+              <div className="flex flex-col gap-4">
+                <Link 
+                  to="/#benefits" 
+                  className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
+                  style={getNavLinkStyles('benefits')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Benefits
+                </Link>
+                <Link 
+                  to="/#features" 
+                  className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
+                  style={getNavLinkStyles('features')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Features
+                </Link>
+                <Link 
+                  to="/#how-it-works" 
+                  className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
+                  style={getNavLinkStyles('how-it-works')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  How it works
+                </Link>
+                <Link 
+                  to="/#testimonials" 
+                  className="text-sm py-2 hover:text-[#4670EC] transition-all duration-300"
+                  style={getNavLinkStyles('testimonials')}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Testimonials
+                </Link>
+                <div className="flex flex-col gap-3 pt-2">
+                  <Link 
+                    to="/auth/login"
+                    className="px-6 py-2 text-sm font-medium rounded-[20px] text-center transition-all duration-500"
+                    style={{
+                      background: 'linear-gradient(95deg, #FFFFFF 0%, #F8F9FF 100%)',
+                      color: '#1249E9',
+                      boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.05)',
+                      border: '1px solid rgba(18, 73, 233, 0.1)'
+                    }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link 
+                    to="/auth/signup"
+                    className="px-6 py-2 text-sm font-medium rounded-[20px] text-center text-white transition-all duration-500"
+                    style={{
+                      background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
+                      boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.05)'
+                    }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Sign Up for Free
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

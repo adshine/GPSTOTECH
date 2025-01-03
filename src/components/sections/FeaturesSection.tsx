@@ -41,21 +41,31 @@ const FeatureBlock = ({
   );
 
   return (
-    <div className="grid md:grid-cols-2 gap-16 items-center py-20">
-      {imagePosition === 'left' && imageContent}
-      <div className={`${imagePosition === 'right' ? 'md:pr-12' : 'md:pl-12'}`}>
-        <h3 className="text-2xl md:text-3xl font-poppins text-[#002252] mb-4">{title}</h3>
-        <p className="text-gray-600 mb-8">{description}</p>
-        <ul className="space-y-6">
+    <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center py-12 md:py-20">
+      {imagePosition === 'left' && (
+        <div className="order-2 md:order-1">
+          {imageContent}
+        </div>
+      )}
+      <div className={`order-1 md:order-2 ${imagePosition === 'right' ? 'md:pr-6 lg:pr-12' : 'md:pl-6 lg:pl-12'}`}>
+        <div className="flex flex-col md:flex-row items-start gap-4 mb-6 md:mb-8">
+          <h3 className="text-2xl md:text-3xl font-poppins text-[#002252]">{title}</h3>
+        </div>
+        <p className="text-gray-600 mb-6 md:mb-8">{description}</p>
+        <ul className="space-y-4 md:space-y-6">
           {items.map((item, index) => (
-            <li key={index} className="flex items-center gap-3">
-              <CheckSquare className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <li key={index} className="flex items-start md:items-center gap-3">
+              <CheckSquare className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1 md:mt-0" />
               <span className="text-gray-600">{item}</span>
             </li>
           ))}
         </ul>
       </div>
-      {imagePosition === 'right' && imageContent}
+      {imagePosition === 'right' && (
+        <div className="order-2">
+          {imageContent}
+        </div>
+      )}
     </div>
   );
 };
@@ -108,19 +118,20 @@ const FeaturesSection = () => {
       className="w-full bg-white"
       aria-label="Key features of GPSTOTECH"
     >
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Hero Section */}
-        <div className="py-20 relative">
+        <div className="py-12 md:py-20 relative">
           <div className="max-w-3xl">
             <span className="text-primary font-medium mb-4 block">Features Like No Other</span>
-            <h2 className="text-3xl md:text-[44px] font-poppins text-[#002252] mb-6 leading-tight">
-              Everything You need to get Your Client into Tech
+            <h2 className="text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 leading-[1.2]">
+              <span className="inline-block">Everything You need to get</span>{' '}
+              <span className="inline-block">Your Client into Tech</span>
             </h2>
-            <p className="text-gray-600 text-lg">
+            <p className="text-base md:text-lg text-gray-600">
               A complete suite of assessment tools and resources to streamline your career guidance process
             </p>
           </div>
-          <div className="mt-12">
+          <div className="mt-8 md:mt-12">
             <motion.img 
               src={FeaturesBg}
               alt="GPSTOTECH Platform Interface" 
@@ -133,12 +144,14 @@ const FeaturesSection = () => {
         </div>
 
         {/* Feature Blocks */}
-        {features.map((feature, index) => (
-          <FeatureBlock
-            key={index}
-            {...feature}
-          />
-        ))}
+        <div className="space-y-12 md:space-y-0">
+          {features.map((feature, index) => (
+            <FeatureBlock
+              key={index}
+              {...feature}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

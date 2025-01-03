@@ -12,13 +12,13 @@ interface FAQItemProps {
 const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
   return (
     <div className="border border-gray-200 mb-4 rounded-sm">
-      <div className="p-6">
+      <div className="p-4 md:p-6">
         <button
-          className="w-full flex items-center justify-between text-left"
+          className="w-full flex items-start md:items-center justify-between text-left gap-4"
           onClick={onClick}
         >
-          <h3 className="text-lg font-medium text-gray-900">{question}</h3>
-          <Plus className={`w-5 h-5 text-gray-500 transition-transform ${isOpen ? 'rotate-45' : ''}`} />
+          <h3 className="text-base md:text-lg font-medium text-gray-900">{question}</h3>
+          <Plus className={`w-5 h-5 text-gray-500 transition-transform flex-shrink-0 ${isOpen ? 'rotate-45' : ''}`} />
         </button>
         <motion.div
           initial={false}
@@ -26,7 +26,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
           transition={{ duration: 0.3 }}
           className="overflow-hidden"
         >
-          <p className="text-base text-gray-600 mt-4">{answer}</p>
+          <p className="text-sm md:text-base text-gray-600 mt-4">{answer}</p>
         </motion.div>
       </div>
     </div>
@@ -60,32 +60,32 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="w-full px-4 py-24">
+    <section className="w-full px-4 py-12 md:py-24">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
           {/* Left Column */}
           <div className="md:col-span-4">
-            <div className="mb-12">
-              <h2 className="text-[44px] font-poppins text-[#0A2357] mb-4 leading-tight">
+            <div className="mb-8 md:mb-12">
+              <h2 className="text-[2rem] md:text-[2.75rem] font-poppins text-[#0A2357] mb-4 leading-[1.2]">
                 Frequently asked questions
               </h2>
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
                 Get quick answers to common questions about GPS to Tech. Can't find what you're looking for? Our team is here to help.
               </p>
             </div>
 
-            <div className="h-px w-full bg-gray-200 mb-12" />
+            <div className="h-px w-full bg-gray-200 mb-8 md:mb-12" />
 
             <div>
-              <h2 className="text-[24px] font-poppins text-[#0A2357] mb-4 leading-tight">
+              <h2 className="text-xl md:text-[24px] font-poppins text-[#0A2357] mb-4 leading-tight">
                 Still have questions?
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8">
                 Support details to capture customers that might be on the fence.
               </p>
               <a 
                 href={mailtoLink}
-                className="inline-block px-8 py-3 bg-gradient-to-b from-white via-[#FAFBFF] to-[#F7F9FF] text-[#0A2357] border border-gray-200 rounded-full transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_16px_-2px_rgba(16,24,40,0.2)] shadow-[0_0_12px_-3px_rgba(16,24,40,0.15)]"
+                className="inline-block px-6 md:px-8 py-2.5 md:py-3 bg-gradient-to-b from-white via-[#FAFBFF] to-[#F7F9FF] text-[#0A2357] text-sm md:text-base border border-gray-200 rounded-full transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_16px_-2px_rgba(16,24,40,0.2)] shadow-[0_0_12px_-3px_rgba(16,24,40,0.15)]"
               >
                 Talk to Sales
               </a>
@@ -94,7 +94,7 @@ const FAQSection = () => {
 
           {/* Right Column - FAQ Items */}
           <div className="md:col-span-8">
-            <div className="max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-200 hover:scrollbar-thumb-gray-300">
+            <div className="max-h-none md:max-h-[600px] overflow-y-visible md:overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-200 hover:scrollbar-thumb-gray-300">
               {faqs.map((faq, index) => (
                 <FAQItem
                   key={index}

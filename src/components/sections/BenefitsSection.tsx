@@ -1,13 +1,10 @@
 import { motion } from 'framer-motion';
 import BenefitBG from '@/assets/imgs/Benefit-BG.png';
 import { 
-
   Target01Icon, 
   PieChartSquareIcon, 
-
   BulbIcon,
   WaterfallUp01Icon,
-
 } from 'hugeicons-react';
 
 interface BenefitCardProps {
@@ -71,7 +68,7 @@ const BenefitsSection = () => {
   return (
     <section 
       id="benefits" 
-      className="w-full bg-white px-4 py-20 md:py-32 relative"
+      className="w-full bg-white px-4 py-16 md:py-32 relative"
       aria-label="Benefits of using GPSTOTECH"
     >
       <div 
@@ -85,22 +82,22 @@ const BenefitsSection = () => {
       />
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 px-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <span className="text-primary font-medium mb-4 block">Benefits</span>
-          <h2 className="text-3xl md:text-[44px] font-poppins text-[#002252] mb-6 tracking-[-1.76px] leading-[120%]">
-            GPS to Tech - Your Career<br />
-            Guidance Solution
+          <h2 className="text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 tracking-[-1.76px] leading-[1.2]">
+            <span className="inline-block">GPS to Tech - Your Career</span>{' '}
+            <span className="inline-block">Guidance Solution</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             All-in-one Counselling Assessment Application designed to demystify tech careers
           </p>
         </motion.div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 px-4">
           {benefits.map((benefit, index) => (
             <BenefitCard
               key={index}
