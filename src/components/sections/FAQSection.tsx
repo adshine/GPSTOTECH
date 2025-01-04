@@ -54,7 +54,7 @@ const FAQSection = () => {
       answer: "There are four different assessments to complete: suitability, career, education, and barrier. Together, there are around 70 questions in total. Don't worry, it should only take between 20 to 40 minutes to finish them all."
     },
     {
-      question: "Is there a special pricing available for community organizations and non-profits?",
+      question: "Is there special pricing available for community organizations and non-profits?",
       answer: "Absolutely! Reach out to us directly to share all the amazing ways you're making a difference in your community and to unlock exclusive rates just for you. We can't wait to hear from you!"
     }
   ];

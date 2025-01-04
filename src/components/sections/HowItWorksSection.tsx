@@ -14,7 +14,7 @@ const steps = [
     image: Step02Fg,
     title: "Setup your client's Profile",
     description:
-      "Complete a few quick setup steps to configure your client's profile and prepare the system for comprehensive results analysis.",
+      "Complete a few quick setup steps to configure your client's profile then begin assessing their aptitude for tech",
   },
   {
     image: Step03Fg,
