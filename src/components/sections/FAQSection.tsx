@@ -47,7 +47,7 @@ const FAQSection = () => {
     },
     {
       question: "What criteria do you use to determine the best tech career specialization?",
-      answer: "Our tech career assessment takes into account your client's interests, educational background, work history, and values to figure out which specialization they're best suited for and where they"
+      answer: "Our tech career assessment takes into account your client’s interests, educational background, work experience, values and a host of other factors, to determine which tech specializations they're best suited for."
     },
     {
       question: "How much time do advisors typically need to finish an assessment with clients?",
