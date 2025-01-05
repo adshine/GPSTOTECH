@@ -89,7 +89,7 @@ const BenefitsSection = () => {
           viewport={{ once: true }}
         >
           <span className="text-primary font-medium mb-4 block">Benefits</span>
-          <h2 className="text-[1.75rem] sm:text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 tracking-[-1.76px] leading-[1.2]">
+          <h2 className="text-[1.65rem] sm:text-[2rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 tracking-[-1.76px] leading-[1.2]">
             <div className="flex flex-col items-center gap-1">
               <span className="inline-block whitespace-nowrap">GPS to Tech -</span>
               <span className="inline-block whitespace-nowrap">Your Career Guidance Solution</span>

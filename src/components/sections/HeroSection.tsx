@@ -58,10 +58,10 @@ const HeroSection = () => {
             className="text-center"
             variants={itemVariants}
           >
-            <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[3.5rem] font-poppins leading-[1.2] tracking-[-0.02em] max-w-[800px] mx-auto text-[#002252]">
+            <h1 className="text-[1.68rem] sm:text-[2.75rem] md:text-[3.5rem] font-poppins leading-[1.2] tracking-[-0.02em] max-w-[800px] mx-auto text-[#002252]">
               <div className="flex flex-col items-center">
-                <span className="inline-block">Fastrack Your Client into</span>
-                <div className="flex flex-row items-center justify-center gap-2">
+                <span className="inline-block px-2">Fastrack Your Client into</span>
+                <div className="flex flex-row items-center justify-center gap-1 flex-wrap px-2">
                   <span className="inline-block">the Right</span>{' '}
                   <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
                 </div>
@@ -73,12 +73,12 @@ const HeroSection = () => {
             className="max-w-[600px] mx-auto flex flex-col items-center gap-6 md:gap-8"
             variants={itemVariants}
           >
-            <p className="text-base sm:text-lg text-[#5B626D] text-center leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#5B626D] text-center leading-relaxed px-2">
               A Smart, Enterprise-Ready desktop application that helps Career Advisors, and Counsellors guide Clients ito the right tech roles
             </p>
-            <motion.div>
+            <motion.div className="w-full flex justify-center px-2">
               <motion.button
-                className="px-8 py-3 rounded-full text-white font-medium text-base sm:text-lg transition-all duration-200 mb-8 md:mb-0"
+                className="w-full sm:w-auto px-8 py-3 rounded-full text-white font-medium text-base sm:text-lg transition-all duration-200 mb-8 md:mb-0"
                 style={{ 
                   background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)',
                   boxShadow: '0px 4px 15px rgba(18, 73, 233, 0.1)'

@@ -26,7 +26,7 @@ const FeatureBlock = ({
   imagePosition = 'right'
 }: FeatureBlockProps) => {
   const imageContent = (
-    <div className="relative">
+    <div className="relative px-2 sm:px-0">
       <img src={bgImage} alt="" className="w-full" />
       <motion.div
         className="absolute inset-0 flex items-center justify-center"
@@ -41,22 +41,22 @@ const FeatureBlock = ({
   );
 
   return (
-    <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center py-12 md:py-20">
+    <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center py-8 sm:py-12 md:py-20">
       {imagePosition === 'left' && (
         <div className="order-2 md:order-1">
           {imageContent}
         </div>
       )}
-      <div className={`order-1 md:order-2 ${imagePosition === 'right' ? 'md:pr-6 lg:pr-12' : 'md:pl-6 lg:pl-12'}`}>
-        <div className="flex flex-col md:flex-row items-start gap-4 mb-6 md:mb-8">
-          <h3 className="text-2xl md:text-3xl font-poppins text-[#002252]">{title}</h3>
+      <div className={`order-1 md:order-2 px-2 sm:px-0 ${imagePosition === 'right' ? 'md:pr-6 lg:pr-12' : 'md:pl-6 lg:pl-12'}`}>
+        <div className="flex flex-col md:flex-row items-start gap-3 sm:gap-4 mb-4 sm:mb-6 md:mb-8">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-poppins text-[#002252] break-words">{title}</h3>
         </div>
-        <p className="text-gray-600 mb-6 md:mb-8">{description}</p>
-        <ul className="space-y-4 md:space-y-6">
+        <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 md:mb-8">{description}</p>
+        <ul className="space-y-3 sm:space-y-4 md:space-y-6">
           {items.map((item, index) => (
-            <li key={index} className="flex items-start md:items-center gap-3">
-              <CheckSquare className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1 md:mt-0" />
-              <span className="text-gray-600">{item}</span>
+            <li key={index} className="flex items-start gap-2 sm:gap-3">
+              <CheckSquare className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500 flex-shrink-0 mt-1 md:mt-0" />
+              <span className="text-sm sm:text-base text-gray-600">{item}</span>
             </li>
           ))}
         </ul>
@@ -118,26 +118,25 @@ const FeaturesSection = () => {
       className="w-full bg-white"
       aria-label="Key features of GPSTOTECH"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6">
         {/* Hero Section */}
-        <div className="py-12 md:py-20 relative">
+        <div className="py-8 sm:py-12 md:py-20 relative">
           <div className="max-w-3xl">
-            <span className="text-primary font-medium mb-4 block">Features Like No Other</span>
-            <h2 className="text-[1.5rem] sm:text-[1.5rem] md:text-[2.75rem] font-poppins text-[#002252] mb-4 md:mb-6 leading-[1.2]">
+            <span className="text-primary font-medium mb-3 sm:mb-4 block">Features Like No Other</span>
+            <h2 className="text-[1.25rem] sm:text-[1.5rem] md:text-[2.75rem] font-poppins text-[#002252] mb-3 sm:mb-4 md:mb-6 leading-[1.2]">
               <div className="flex flex-col gap-1">
-                <span className="inline-block whitespace-nowrap">Everything You need to get Your</span>
-                <span className="inline-block whitespace-nowrap">Client into Tech</span>
+                <span className="inline-block break-words">Everything You need to get Your Client into Tech</span>
               </div>
             </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-[600px]">
-              A complete suite of assessment tools and resources  to streamline your career guidance process
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-[600px]">
+              A complete suite of assessment tools and resources to streamline your career guidance process
             </p>
           </div>
-          <div className="mt-8 md:mt-12">
+          <div className="mt-6 sm:mt-8 md:mt-12">
             <img 
               src={FeaturesBg}
               alt="GPSTOTECH Platform Interface" 
-              className="w-full max-h-[450px] md:h-[600px] rounded-[10px] object-cover sm:object-contain"
+              className="w-full max-h-[300px] sm:max-h-[450px] md:h-[600px] rounded-[10px] object-contain"
               loading="lazy"
               style={{ 
                 imageRendering: '-webkit-optimize-contrast'
