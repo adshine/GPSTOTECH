@@ -45,7 +45,16 @@ export function Footer() {
         <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16">
           <div className="flex flex-col gap-6 md:gap-8">
             <div className="w-[140px] md:w-[187px] h-[26px] md:h-[34px]">
-              <img src={BrandLogo} alt="GPSTOTECH Logo" className="w-full h-full object-contain brightness-0 invert ml-[-10px]" />
+              <img 
+                src={BrandLogo} 
+                alt="GPSTOTECH Logo" 
+                className="w-full h-full object-contain brightness-0 invert ml-[-10px]" 
+                style={{
+                  imageRendering: '-webkit-optimize-contrast',
+                  WebkitFontSmoothing: 'antialiased',
+                  MozOsxFontSmoothing: 'grayscale'
+                }}
+              />
             </div>
             
             <div className="flex gap-4 md:gap-8 flex-wrap font-poppins">

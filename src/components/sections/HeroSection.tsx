@@ -42,7 +42,9 @@ const HeroSection = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          imageRendering: 'crisp-edges'
+          imageRendering: '-webkit-optimize-contrast',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale'
         }}
       />
 
@@ -120,7 +122,9 @@ const HeroSection = () => {
               loading="eager"
               style={{ 
                 aspectRatio: '17/9',
-                imageRendering: '-webkit-optimize-contrast'
+                imageRendering: '-webkit-optimize-contrast',
+                WebkitFontSmoothing: 'antialiased',
+                MozOsxFontSmoothing: 'grayscale'
               }}
               draggable="false"
             />

@@ -78,7 +78,9 @@ const BenefitsSection = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          imageRendering: 'crisp-edges'
+          imageRendering: '-webkit-optimize-contrast',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale'
         }}
       />
       <div className="max-w-7xl mx-auto relative z-10">

@@ -16,7 +16,11 @@ const CTASection = () => {
           transition={{ duration: 1 }}
         >
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-[url('/src/assets/imgs/CTA-Bg.png')] bg-cover bg-center bg-no-repeat" />
+          <div className="absolute inset-0 bg-[url('/src/assets/imgs/CTA-Bg.png')] bg-cover bg-center bg-no-repeat" style={{
+            imageRendering: '-webkit-optimize-contrast',
+            WebkitFontSmoothing: 'antialiased',
+            MozOsxFontSmoothing: 'grayscale'
+          }} />
           
           {/* Decorative elements */}
           <motion.div
