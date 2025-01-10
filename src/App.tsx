@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 
 import { Header } from "@/components/layout/Header"
 import { Footer } from "@/components/layout/Footer"
@@ -13,6 +13,8 @@ import CTASection from "@/components/sections/CTASection"
 import FAQSection from "@/components/sections/FAQSection"
 import PrivacyPolicy from "@/pages/PrivacyPolicy"
 import TermsOfService from "@/pages/TermsOfService"
+import SignUp from "@/pages/SignUp"
+import Login from "@/pages/Login"
 
 function HomePage() {
   useEffect(() => {
@@ -54,15 +56,20 @@ function HomePage() {
 }
 
 function App() {
+  const location = useLocation();
+  const isAuthPage = location.pathname.startsWith('/auth/');
+
   return (
     <div className="relative">
-      <Header />
+      {!isAuthPage && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/auth/signup" element={<SignUp />} />
+        <Route path="/auth/login" element={<Login />} />
       </Routes>
-      <Footer />
+      {!isAuthPage && <Footer />}
     </div>
   )
 }
