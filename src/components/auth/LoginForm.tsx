@@ -32,7 +32,13 @@ export function LoginForm() {
     setIsSubmitting(true);
     try {
       // TODO: Implement actual login logic
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulated API call
+      await fetch('https://submit-form.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
       setIsSuccess(true);
       form.reset();
     } catch (error) {
