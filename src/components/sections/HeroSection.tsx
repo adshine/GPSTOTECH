@@ -62,7 +62,7 @@ const HeroSection = () => {
           >
             <h1 className="text-[1.68rem] sm:text-[2.75rem] md:text-[3.5rem] font-poppins leading-[1.2] tracking-[-0.02em] max-w-[800px] mx-auto text-[#002252]">
               <div className="flex flex-col items-center">
-                <span className="inline-block px-2">Fastrack Your Client into</span>
+                <span className="inline-block px-2">Fast track Your Client into</span>
                 <div className="flex flex-row items-center justify-center gap-1 flex-wrap px-2">
                   <span className="inline-block">the Right</span>{' '}
                   <span className="inline-block" style={{ background: 'linear-gradient(95deg, #4BACF1 4.06%, #1249E9 84.04%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Tech Career</span>
