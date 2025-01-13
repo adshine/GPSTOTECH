@@ -11,6 +11,7 @@ import { HowItWorksSection } from "@/components/sections/HowItWorksSection"
 import TestimonialsSection from "@/components/sections/TestimonialsSection"
 import CTASection from "@/components/sections/CTASection"
 import FAQSection from "@/components/sections/FAQSection"
+import AboutSection from "@/components/sections/AboutSection"
 import PrivacyPolicy from "@/pages/PrivacyPolicy"
 import TermsOfService from "@/pages/TermsOfService"
 import SignUp from "@/pages/SignUp"
@@ -48,8 +49,9 @@ function HomePage() {
         <FeaturesSection />
         <HowItWorksSection />
         <TestimonialsSection />
-        <CTASection />
+        <AboutSection />
         <FAQSection />
+        <CTASection />
       </main>
     </>
   )
