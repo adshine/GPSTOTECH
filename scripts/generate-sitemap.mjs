@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync, mkdirSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -10,15 +10,22 @@ const WEBSITE_URL = 'https://gpstotech.netlify.app';
 // Add all your website routes here
 const routes = [
   '/',
-  '/about',
+  '/auth/login',
+  '/auth/signup',
   '/privacy-policy',
-  '/terms-of-service',
-  '/contact',
-  // Add more routes as needed
+  '/terms-of-service'
 ];
 
 function generateSitemap() {
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  try {
+    const publicDir = resolve(process.cwd(), 'public');
+    
+    // Ensure public directory exists
+    if (!existsSync(publicDir)) {
+      mkdirSync(publicDir, { recursive: true });
+    }
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${routes
     .map((route) => {
@@ -33,8 +40,13 @@ function generateSitemap() {
     .join('')}
 </urlset>`;
 
-  writeFileSync(resolve(process.cwd(), 'public/sitemap.xml'), sitemap.trim());
-  console.log('✅ Sitemap generated successfully!');
+    writeFileSync(resolve(publicDir, 'sitemap.xml'), sitemap.trim());
+    console.log('✅ Sitemap generated successfully!');
+  } catch (error) {
+    console.error('Warning: Failed to generate sitemap:', error);
+    // Don't throw the error, just log it
+    process.exit(0);
+  }
 }
 
 generateSitemap(); 
