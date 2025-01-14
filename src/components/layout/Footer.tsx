@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import CTABg from "@/assets/imgs/cta-bg.png"
+import CTABg from "@/assets/imgs/CTA-Bg.png"
 import BrandLogo from "@/assets/imgs/GPSTOTECH-Logo.svg"
 import { useState } from "react"
 import CookieSettings from "@/components/cookie-consent/CookieSettings"
